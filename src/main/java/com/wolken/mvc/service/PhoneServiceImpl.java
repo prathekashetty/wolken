@@ -11,10 +11,12 @@ package com.wolken.mvc.service;
 	}*/
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.wolken.mvc.controller.PhoneController;
 import com.wolken.mvc.dao.PhoneDetailsDAO;
 import com.wolken.mvc.dto.PhoneDTO;
 import com.wolken.mvc.entity.PhoneEntity;
@@ -25,7 +27,7 @@ public class PhoneServiceImpl implements PhoneService {
 	
 	@Autowired
 	PhoneDetailsDAO dao;
-	
+	 Logger logger=Logger.getLogger(PhoneServiceImpl.class);
 	public String validateAndSave(PhoneDTO dto) {
 		PhoneEntity entity=new PhoneEntity();
         if (dto !=null){
@@ -56,7 +58,11 @@ public class PhoneServiceImpl implements PhoneService {
 
 	public void printHello() {
 		// TODO Auto-generated method stub
-		System.out.println("Hello service");
+		logger.error("Error");
+		logger.debug("Debug");
+		logger.trace("Trace");
+		logger.warn("warn");
+		logger.info("Service");
 	}
 	
 }

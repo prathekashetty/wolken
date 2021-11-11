@@ -2,6 +2,7 @@ package com.wolken.mvc.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +16,15 @@ import com.wolken.mvc.service.PhoneService;
 public class PhoneController {
 	@Autowired
 	PhoneService service;
-
+    Logger logger=Logger.getLogger(PhoneController.class);
 	@RequestMapping("/save")
 	ModelAndView save(PhoneDTO dto) {
 		ModelAndView view = new ModelAndView();
+		logger.error("Error");
+		logger.debug("Debug");
+		logger.trace("Trace");
+		logger.warn("warn");
+		logger.info("hii");
 		String out = service.validateAndSave(dto);
 		view.setViewName("hello.jsp");
 		view.addObject("msg", out);
